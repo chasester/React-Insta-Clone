@@ -1,0 +1,47 @@
+
+ @import url('https://fonts.googleapis.com/css?family=Mr+Bedfort');
+ 
+.nav-container
+{
+    font-family: 'Mr Bedfort', cursive;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    
+}
+
+
+.nav-container .logo
+{
+    font-size: 36px;
+}
+
+.links i
+{
+    margin: 10px;
+    font-size: 32px;
+    color: black
+}
+
+#search-bar
+{
+    padding-right: 16px;
+}
+
+.search-clear
+{
+    background-color: #00000000;
+    border: 0;
+    font-size: 16px;
+    color: gray;
+    position: relative;
+    left: -20px;
+}
+
+.search-clear:active
+{
+    border: 0;
+    color: black;
+}
