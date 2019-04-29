@@ -12,13 +12,13 @@ class SearchBar extends React.Component
     }
     handleReset(event){
         event.preventDefault();
-        console.log("hello");
         this.setState({value: ''});
     }
     handleChange(event) 
     {
         //alert('A name was submitted: ' + this.state.value);
         this.setState({value: event.target.value});
+        event.preventDefault();
        
     }
 
@@ -30,7 +30,7 @@ class SearchBar extends React.Component
     {
         return(
             <div className="search-bar" onSubmit={this.handleSumbit} id="noselect">
-                <form>
+                <form autoComplete="off">
                    <input type="text" placeholder="&#xf002; Search" name={`search`} className="fa fa-input" id="search-bar" value={this.state.value} onChange={this.handleChange}/>
                    <input type="button" value="x" className="search-clear" style={this.state.value === "" ? {opacity: "0"} : {opacity: "1"} } onClick={this.handleReset}/>
                 </form>
