@@ -21,7 +21,7 @@ class NavBar extends React.Component
     render()
     {
         return (
-            <div className="nav-container">
+            <div className="nav-container" id="noselect">
                 <div className="logo" onClick={()=> console.log("clicked")}><i className="fab fa-instagram"></i> | Instagram</div>
                 <SearchBar />
                 <div className="links">
@@ -34,10 +34,23 @@ class NavBar extends React.Component
     }
 }
 
+window.onscroll = function() {moveSticky()};
+
 var sticky = null;
+var stickyoffset = 0;
 function getSticky() 
 {
-  sticky = document.querySelector(".nav-container")
-  console.log(sticky);
+  sticky = document.querySelector(".nav-container");
+  stickyoffset = sticky.offsetTop;
 }
+
+function moveSticky() {
+    if(!sticky) return;
+    if (window.pageYOffset >= stickyoffset) {
+      sticky.classList.add("sticky")
+    } else {
+      sticky.classList.remove("sticky");
+    }
+  }
+
 export default NavBar;
