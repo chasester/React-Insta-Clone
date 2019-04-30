@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 class Post extends React.Component
 {
@@ -21,8 +22,7 @@ class Post extends React.Component
                     <div className="content-comments">
                     {c}    
                     </div>
-                    
-                    <div className="time-stamp">SomeTimeAgo</div>
+                    <div className="time-stamp">{moment(this.props.data.timestamp, "LLL").fromNow()}</div>
                     <div className="comment-box"> </div>
                 </div>
                 <div>
