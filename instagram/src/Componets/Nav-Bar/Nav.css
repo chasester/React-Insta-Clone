@@ -51,7 +51,7 @@
     background: 0;
     color: gray;
     position: relative;
-    left: -20px;
+    left: -30px;
 }
 
 .search-clear:focus
@@ -66,4 +66,10 @@ input[type=text] {
     box-sizing: border-box;
     border: thin solid #00000033;
     outline: none;
-  }
+}
+
+.search-bar
+{
+    display: flex;
+    align-items: center;
+}

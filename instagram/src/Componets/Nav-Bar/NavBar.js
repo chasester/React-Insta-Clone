@@ -22,8 +22,8 @@ class NavBar extends React.Component
     {
         return (
             <div className="nav-container" id="noselect">
-                <div className="logo" onClick={()=> console.log("clicked")}><i className="fab fa-instagram"></i> | Instagram</div>
-                <SearchBar />
+                <div className="logo" onClick={()=> console.log("clicked")}><i className="fas fa-cookie-bite"></i> | Food-E-Haven</div>
+                <SearchBar placeholder={"\uf002 Search"} />
                 <div className="links">
                     <i className="far fa-compass"onClick={()=> console.log("clicked")}></i>
                     <i className="far fa-heart" onClick={()=> console.log("clicked")}></i>
