@@ -4,6 +4,7 @@ import UserInputForm from '../Functionality/UserInputForm';
 
 class Post extends React.Component
 {
+    liked = false;
     render()
     {
         let c = this.props.data.comments.map((x,i) => <div className="content-comment" key={`post:${this.key}comment:${i}`}><strong>{x.username}</strong> {x.text}</div>);
@@ -12,7 +13,8 @@ class Post extends React.Component
                 <div className="user-avatar"><img className="avatar" id="size-small" src={this.props.data.thumbnailUrl} alt={`${this.props.data.username}-profile`}/>{this.props.data.username}</div>
                 <div className="post-content content">
                     <img src={this.props.data.imageUrl} alt="post pic"/>
-                    <div className="actions" id="noselect"><i className="far fa-heart" onClick={() => console.log("liked")}></i> <i className="far fa-comment" onClick={() => console.log("comment")}></i></div>
+                    <div className="actions" id="noselect"><span  onClick={() =>this.handleLike()}><i className={`${this.liked ? "fas" : "far"} fa-heart floater-container`} data-floatid={this.props.index}></i></span> <i className="far fa-comment" onClick={() => console.log("comment")}></i></div>
+                    <i className="fas fa-heart like-floater" id="floater" data-floatid={this.props.index} style={{display: "none"}}></i>
                     <div className="likes" id="noselect">{this.props.data.likes > 0 ? `${this.props.data.likes} likes` : ""}</div>
                     <div className="content-comments">
                     {c}    
@@ -26,12 +28,17 @@ class Post extends React.Component
             </div>
         );
     }
+    handleLike()
+    {
+        this.liked = !this.liked;
+        this.props.likedcb(this.liked, user.id, this.props.index);
+    }
     handleComment(str)
     {
-        this.props.commentcb(str,user,this.props.index);
+        this.props.commentcb(str,user.name,this.props.index);
     }
     
 }
 
-var user = "Some_Sexy_Person"
+var user = {name: "Some_Sexy_Person", id: "484238347"} //dummy data for when we connect to a db
 export default Post
