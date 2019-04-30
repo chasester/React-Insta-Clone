@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SearchBar extends React.Component
+class UserInputForm extends React.Component
 {
     constructor(props) {
         super(props);
@@ -25,14 +25,17 @@ class SearchBar extends React.Component
     handleSumbit(event)
     {
         event.preventDefault();
-        if(this.props.submitCb) this.props.submitCb()
+        if(this.props.submitCb) this.props.submitCb(this.state.value);
+        if(this.props.clearOnSubmit)this.setState({value: ''});
     }
     render()
     {
         return(
-            <div className="search-bar" onSubmit={this.handleSumbit} id="noselect">
-                   <input type="text" autoComplete="off" placeholder={this.props.placeholder} className="fa fa-input" id="search-bar" value={this.state.value} onChange={this.handleChange}/>
-                   <input type="button" value={"\uf057"} className="search-clear fa" style={this.state.value === "" ? {opacity: "0"} : {opacity: "1"} } onClick={this.handleReset}/>
+            <div className="search-bar"  id="noselect">
+                <form onSubmit={this.handleSumbit}>
+                   <input type="text" autoComplete="off" placeholder={this.props.placeholder} size={this.props.size > 0 ? this.props.size : 15} className="fa fa-input input-field" id="search-bar" value={this.state.value} onChange={this.handleChange}/>
+                   <input type="button" value={"\uf057"}   className="search-clear fa" style={this.state.value === "" ? {opacity: "0"} : {opacity: "1"} } onClick={this.handleReset}/>
+                </form>
             </div>
         )
     }
@@ -44,4 +47,4 @@ class SearchBar extends React.Component
 //submitCb
 //resetCb
 
-export default SearchBar;
+export default UserInputForm;

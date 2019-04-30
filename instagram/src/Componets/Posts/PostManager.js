@@ -16,7 +16,7 @@ class PostManager extends React.Component
         return(
             <div className="post-content main-content">
                 {
-                    this.state.data.map( (x,i) => <Post data={x} key={`post:${i}`} commentcb={(s,u) => this.handleComment(s,u,i)}/>)
+                    this.state.data.map( (x,i) => <Post data={x} key={`post:${i}`} index={i} commentcb={(s,u) => this.handleComment(s,u,i)}/>)
                 }
             </div>
         );
@@ -26,10 +26,11 @@ class PostManager extends React.Component
     {
         try
         {
-            let len = this.state.data[id].comments.length;
+            let arry = this.state.data;
+            let len = arry[id].comments.length;
             id= parseInt(id); str.toString(); user.toString();
-            this.state.data[id].comments.push({id: len, username: user, text: str});
-            this.setState(this.state);
+            arry[id].comments.push({id: len, username: user, text: str});
+            this.setState({data : arry});
         }
         catch (err) 
         {
