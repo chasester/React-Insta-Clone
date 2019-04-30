@@ -1,6 +1,6 @@
 import React from 'react';
 import './Nav.css';
-import SearchBar from '../Functionality/Forrm';
+import UserInputForm from '../Functionality/UserInputForm';
 
 class NavBar extends React.Component
 {
@@ -22,8 +22,8 @@ class NavBar extends React.Component
     {
         return (
             <div className="nav-container" id="noselect">
-                <div className="logo" onClick={()=> console.log("clicked")}><i className="fas fa-cookie-bite"></i> | Food-E-Haven</div>
-                <SearchBar placeholder={"\uf002 Search"} />
+                <div className="logo" onClick={()=> console.log("clicked")}><i className="fas fa-cookie-bite"></i> | Food Hub</div>
+                <UserInputForm placeholder={"\uf002 Search"} clearOnSubmit={false} />
                 <div className="links">
                     <i className="far fa-compass"onClick={()=> console.log("clicked")}></i>
                     <i className="far fa-heart" onClick={()=> console.log("clicked")}></i>

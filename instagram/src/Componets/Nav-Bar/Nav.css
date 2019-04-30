@@ -51,7 +51,7 @@
     background: 0;
     color: gray;
     position: relative;
-    left: -30px;
+    left: -28px;
 }
 
 .search-clear:focus
@@ -62,14 +62,15 @@
 }
 
 input[type=text] {
-    padding: 4px 16px 4px 4px;
+    padding: 4px 24px 4px 4px;
     box-sizing: border-box;
     border: thin solid #00000033;
+    background: #FFFFFFAA;
     outline: none;
 }
 
 .search-bar
 {
     display: flex;
-    align-items: center;
+    justify-self: flex-end;
 }
