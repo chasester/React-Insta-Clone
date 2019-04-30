@@ -1,6 +1,6 @@
 import React from 'react';
 import './Nav.css';
-import SearchBar from '../Functionality/SearchBar';
+import SearchBar from '../Functionality/Forrm';
 
 class NavBar extends React.Component
 {
