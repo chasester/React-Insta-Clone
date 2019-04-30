@@ -67,3 +67,11 @@ body {
   color: gray;
   object-fit: cover;
 }
+
+.floater-attach
+{
+  display: none;
+  position: absolute;
+  left: -10;
+  top: -10;
+}
