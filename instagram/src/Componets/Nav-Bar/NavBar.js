@@ -23,7 +23,7 @@ class NavBar extends React.Component
         return (
             <div className="nav-container" id="noselect">
                 <div className="logo" onClick={()=> console.log("clicked")}><i className="fas fa-cookie-bite"></i> | Food Hub</div>
-                <UserInputForm placeholder={"\uf002 Search"} clearOnSubmit={false} />
+                <UserInputForm placeholder={"\uf002 Search"} changeCb={(str) => this.props.searchCb(str)} clearOnSubmit={false} />
                 <div className="links">
                     <i className="far fa-compass"onClick={()=> console.log("clicked")}></i>
                     <i className="far fa-heart" onClick={()=> console.log("clicked")}></i>
