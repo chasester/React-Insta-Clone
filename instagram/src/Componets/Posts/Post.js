@@ -31,14 +31,13 @@ class Post extends React.Component
     handleLike()
     {
         this.liked = !this.liked;
-        this.props.likedcb(this.liked, user.id, this.props.index);
+        this.props.likedcb(this.liked, localStorage.getItem("credentials"), this.props.index);
     }
     handleComment(str)
     {
-        this.props.commentcb(str,user.name,this.props.index);
+        this.props.commentcb(str,localStorage.getItem("username"),this.props.index);
     }
     
 }
 
-var user = {name: "Some_Sexy_Person", id: "484238347"} //dummy data for when we connect to a db
 export default Post
