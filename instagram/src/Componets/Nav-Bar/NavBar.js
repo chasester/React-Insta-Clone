@@ -20,8 +20,7 @@ max-width: 1000px;
 background-color: #FFFFFFAA;
 `
 
-const Logo = styled.div
-`
+const Logo = styled.div`
 font-size: 36px;
 
 `
