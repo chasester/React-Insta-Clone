@@ -1,47 +1,16 @@
 
  @import url('https://fonts.googleapis.com/css?family=Mr+Bedfort');
  
-.nav-container
-{
-    font-family: 'Mr Bedfort', cursive;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden;
-    background-color: #FFFFFF;
-    margin-left: -20px;
-    margin-top: -20px;
-    padding: 10px 20px;
-    width: 100%;
-}
-
-.sticky
-{
-    position: fixed;
-    top: 0;
-    margin-left: -20px;
-    margin-top: 0;
-    padding: 10px 20px;
-    max-width: 1000px;
-    width: 100%;
-    background-color: #FFFFFFAA;
-}
-
 .sticky + .main-content
 {
     padding-top: 80px;
-}
-
-.nav-container .logo
-{
-    font-size: 36px;
 }
 
 .links i
 {
     margin: 10px;
     font-size: 32px;
-    color: black
+    color: black;
 }
 
 .search-clear
