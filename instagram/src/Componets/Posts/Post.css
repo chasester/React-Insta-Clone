@@ -5,9 +5,7 @@
 
 .user-avatar
 {
-    display: flex;
-    align-items: center;
-    font-size: 20px;
+ 
 }
 
 .user-avatar img
@@ -31,12 +29,10 @@
 }
 .post-container .likes
 {
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 10px;
+    
 }
 
-.post-container .actions i
+.actions i
 {
     margin-right: 10px;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components'
 
 import UserInputForm from '../Functionality/UserInputForm';
 
@@ -17,7 +17,9 @@ const Actions = styled.div`
     margin: 20px 0;
     width: 100%;
     overflow: hidden;
-    object-fit: contain;`
+    object-fit: contain;
+    font-size: 24px;
+    `
 
 const MainImage = styled.img`
 margin: 20px 0;
@@ -37,7 +39,24 @@ border-radius: 100px;
 const Avatar = styled.div`
 display: flex;
 align-items: center;
-font-size: 20px;
+`
+const TimeStamp = styled.div`
+font-size: 12px;
+color: gray;
+object-fit: cover;
+`
+const UserName = styled.span `
+font-size: 12px;
+font-weight: 700;
+
+${props => props.large && css`
+    font-size: 14px;
+  `}
+`;
+const Likes = styled.div`
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
 `
 
 class Post extends React.Component
@@ -45,19 +64,19 @@ class Post extends React.Component
     liked = false;
     render()
     {
-        let c = this.props.data.comments.map((x,i) => <div className="content-comment" key={`post:${this.key}comment:${i}`}><strong>{x.username}</strong> {x.text}</div>);
+        let c = this.props.data.comments.map((x,i) => <div className="content-comment" key={`post:${this.key}comment:${i}`}><UserName>{x.username}</UserName> {x.text}</div>);
         return(
             <Container>
-                <Avatar><AvatarImage id="size-small" src={this.props.data.thumbnailUrl} alt={`${this.props.data.username}-profile`}/>{this.props.data.username}</Avatar>
+                <Avatar><AvatarImage id="size-small" src={this.props.data.thumbnailUrl} alt={`${this.props.data.username}-profile`}/><UserName large>{this.props.data.username}</UserName></Avatar>
                 <div className="post-content content">
                     <MainImage src={this.props.data.imageUrl} alt="post pic"/>
-                    <Actions id="noselect"><span  onClick={() =>this.handleLike()}><i className={`${this.liked ? "fas" : "far"} fa-heart floater-container`} data-floatid={this.props.index}></i></span> <i className="far fa-comment" onClick={() => console.log("comment")}></i></Actions>
+                    <Actions className="actions" id="noselect"><span  onClick={() =>this.handleLike()}><i className={`${this.liked ? "fas" : "far"} fa-heart floater-container`} data-floatid={this.props.index}></i></span> <i className="far fa-comment" onClick={() => console.log("comment")}></i></Actions>
                     <i className="fas fa-heart like-floater" id="floater" data-floatid={this.props.index} style={{display: "none"}}></i>
-                    <div className="likes" id="noselect">{this.props.data.likes > 0 ? `${this.props.data.likes} likes` : ""}</div>
+                    <Likes id="noselect">{this.props.data.likes > 0 ? `${this.props.data.likes} likes` : ""}</Likes>
                     <div className="content-comments">
                     {c}    
                     </div>
-                    <div className="time-stamp">{moment(this.props.data.timestamp, "LLL").fromNow()}</div>
+                    <TimeStamp>{moment(this.props.data.timestamp, "LLL").fromNow()}</TimeStamp>
                     <div className="comment-box" id="noselect"><UserInputForm placeholder={"comment..."} submitCb={str => this.handleComment(str)} clearOnSubmit={true} size={500}/><span onClick={() =>console.log("clicked")}>...</span></div>
                 </div>
                 <div>
