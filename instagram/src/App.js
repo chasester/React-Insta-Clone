@@ -1,16 +1,7 @@
-import React from 'react';
 import './App.css';
 
 import PostManager from './Componets/Posts/PostManager';
+import Login from './Componets/Authentication/Login';
+import withAuthenticate from './Componets/Authentication/withAuthenticate'
 
-function App() {
-  return (
-    <div className="App">
-      <div className="container">
-        <PostManager />
-      </div>
-    </div>
-  );
-}
-
-export default App;
+export default withAuthenticate(PostManager)(Login);

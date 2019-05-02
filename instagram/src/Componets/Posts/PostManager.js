@@ -16,13 +16,13 @@ class PostManager extends React.Component
     render()
     {
         return(
-            <div><NavBar searchCb={(str) => this.filterSearch(str)} />
-                <div className="post-content main-content">
-
-                    {
-                        this.data.map( (x,i) => <Post data={x} key={`post:${i}`} index={i} likedcb={(add,user,id) => this.handleLike(add,user,id)}commentcb={(s,u) => this.handleComment(s,u,i)}/>)
-                    }
-                </div>
+            <div>
+                <NavBar searchCb={(str) => this.filterSearch(str)} loginCb={this.props.loginCb} />
+                    <div className="post-content main-content">
+                        {
+                            this.data.map( (x,i) => <Post data={x} key={`post:${i}`} index={i} likedcb={(add,user,id) => this.handleLike(add,user,id)}commentcb={(s,u) => this.handleComment(s,u,i)}/>)
+                        }
+                    </div>
             </div>
         );
     }
